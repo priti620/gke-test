@@ -1,19 +1,25 @@
 terraform {
+ 
+  required_version = ">= 0.13"
   required_providers {
+
     google = {
       source  = "hashicorp/google"
-      version = "3.63.0"
+      version = ">= 4.42, < 5.0"
     }
   }
- 
-}
- 
+  }
 provider "google" {
   # Configuration options
   project = "anthos-installation"
   region  = "us-west1"
   zone    = "us-west1-a"
   credentials  ="keys.json"
+}
+
+provider "google-beta" {
+  credentials = "keys.json"
+  project     = "anthos-installation"
 }
 module "gke_auth" {
   source = "terraform-google-modules/kubernetes-engine/google//modules/auth"
