@@ -1,6 +1,6 @@
 variable "project_id" {
   description = "The project ID to host the cluster in"
-  default = "terraform-assignment-393108"
+  default = "anthos-installation"
 }
 variable "cluster_name" {
   description = "The name for the GKE cluster"
